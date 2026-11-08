@@ -1,0 +1,31 @@
+# Dados (originais, processados e externos): só a estrutura de pastas é versionada
+ml/data/**
+!ml/data/**/
+!ml/data/**/.gitkeep
+
+# Export do Roboflow, caso seja colocado fora de ml/data/raw/
+roboflow/
+BRL.v1i.coco/
+
+# Modelos: ficam no Hugging Face (arthursilvadantas/NotavelAI), inclusive a cópia do app
+*.h5
+*.keras
+*.tflite
+
+# Segredos
+.env
+
+# Material de referência da disciplina e projeto anterior: não fazem parte deste repositório
+Aulas ProgMobile/
+P2EnciclopediaAnimal/
+Avaliação 3 prog Mobile.pdf
+
+# Fotos pessoais copiadas para o teste instrumentado (geradas por ml/src/models/export_android.py)
+android/app/src/androidTest/assets/
+
+# Ambiente e sistema
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
