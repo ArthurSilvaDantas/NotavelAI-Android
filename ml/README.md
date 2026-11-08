@@ -114,16 +114,19 @@ the app would announce a value (confidence ≥ 70% and class other than `fundo`)
 
 For reference, the paper behind the Kaggle dataset (Almeida et al., 2025) reports 99.6% on the
 whole test split and 100% on the extra set with a SqueezeNet that runs on a server; NotavelAI runs
-**offline on the phone**. Their test and training photos come from the same capture sessions, so
-both numbers are optimistic.
+**offline on the phone**. Their main split is a random 80/20 split of photos from the same
+collection, which tends to make the 99.6% optimistic; their extra set uses other phones and images
+from Google.
 
 **Latency:** about 2 ms per photo on an Apple Silicon Mac CPU, 1 thread.
 
 ### Limitations
 
-- **First-series (old) banknotes** were barely in the training data: in our tests, the old R$ 100
-  and R$ 10 were often missed.
-- **R$ 5 vs R$ 10** is the most common confusion.
+- **Most frequent errors** (adding the three test sets): R$ 50 is the most often missed (6 errors,
+  taken for R$ 10, R$ 5 or R$ 200), R$ 200 is sometimes answered as `fundo` (3), and R$ 5 and
+  R$ 10 get mixed up (3).
+- **First-series (old) banknotes** were barely in the training data: in informal tests with photos
+  of a screen, the old R$ 100 and R$ 10 were often missed.
 - **Framing:** the model looks at the central square; a small banknote far from the center may be
   answered as `fundo` (in the group's photos, 2 of 5 R$ 200 notes were).
 - **Photos of screens** (a banknote shown on a monitor) are much harder than real banknotes.
@@ -250,16 +253,18 @@ em que o app anunciaria um valor (confiança ≥ 70% e classe diferente de `fund
 
 Como referência, o artigo do dataset do Kaggle (Almeida et al., 2025) relata 99,6% no teste completo
 e 100% no conjunto extra, com uma SqueezeNet que roda num servidor; o NotavelAI roda **offline, no
-celular**. As fotos de teste e de treino deles vêm das mesmas sessões de captura, então os dois
-números são otimistas.
+celular**. A divisão principal deles é um sorteio 80/20 entre fotos da mesma coleta, o que tende a
+deixar o 99,6% otimista; o conjunto extra deles usa outros celulares e imagens do Google.
 
 **Latência:** cerca de 2 ms por foto numa CPU de Mac (Apple Silicon), com 1 thread.
 
 ### Limitações
 
-- **Notas da primeira família** (as antigas) quase não estão no treino: nos nossos testes, a R$ 100
-  e a R$ 10 antigas falharam com frequência.
-- **R$ 5 e R$ 10** são a confusão mais comum.
+- **Erros mais frequentes** (somando os três testes): a R$ 50 é a nota mais confundida (6 erros,
+  tomada por R$ 10, R$ 5 ou R$ 200), a R$ 200 às vezes sai como `fundo` (3), e R$ 5 e R$ 10
+  também se confundem (3).
+- **Notas da primeira família** (as antigas) quase não estão no treino: em testes informais com
+  fotos de tela, a R$ 100 e a R$ 10 antigas falharam com frequência.
 - **Enquadramento:** o modelo olha o quadrado central; uma nota pequena e longe do centro pode sair
   como `fundo` (nas fotos do grupo, 2 de 5 notas de R$ 200).
 - **Foto de tela** (nota mostrada num monitor) é bem mais difícil que uma nota de verdade.

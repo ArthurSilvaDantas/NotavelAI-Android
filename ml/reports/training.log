@@ -123,7 +123,7 @@ Epoch 23/30
 Epoch 24/30
 85/85 - 35s - 412ms/step - accuracy: 0.9742 - loss: 0.0780 - val_accuracy: 0.9755 - val_loss: 0.0796
 
-Melhor modelo: /private/tmp/claude-501/-Users-arthursilvadantas-Projects-Active-NotaveAI/723247d6-b3f3-44a9-af78-c0949274c009/scratchpad/final_C.keras
+Melhor modelo: models/notavelai.keras (gravado numa pasta temporária durante o treino e copiado para models/)
 Validação: loss=0.0621 acurácia=0.9853
 Melhor val_loss: fase 1=0.7734, fase 2=0.0621
 FIM C exit=0
