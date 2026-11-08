@@ -1,4 +1,2 @@
-model,validation_correct,validation_spoken_right,validation_spoken_wrong,phone_correct,phone_spoken_right,phone_spoken_wrong
-base,64/66,44,1,14/24,10,5
-external,60/66,39,4,16/24,11,4
-final,63/66,43,1,13/24,11,4
+model,validation_correct,validation_spoken_right,validation_spoken_wrong,phone_correct,phone_spoken_right,phone_spoken_wrong,kaggle_correct,kaggle_spoken_right,kaggle_spoken_wrong,kaggle_extra_correct,kaggle_extra_spoken_right,kaggle_extra_spoken_wrong
+notavelai,200/204,182,2,19/24,18,0,129/135,127,2,62/66,59,3
