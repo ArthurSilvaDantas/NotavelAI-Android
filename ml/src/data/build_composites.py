@@ -55,7 +55,7 @@ def main() -> None:
     backgrounds = sorted((TRAIN_DIR / "fundo").glob("*.jpg"))
     for label in CLASSES:
         # Fotos inteiras (do celular ou de dataset externo) já têm cena própria e não servem como recorte.
-        crops = sorted(p for p in (TRAIN_DIR / label).glob("*.jpg") if not p.name.startswith(("phone__", "external__")))
+        crops = sorted(p for p in (TRAIN_DIR / label).glob("*.jpg") if not p.name.startswith(("phone__", "external__", "kaggle__")))
         build(label, crops, backgrounds, rng)
     build("fundo", backgrounds, backgrounds, rng)
 
