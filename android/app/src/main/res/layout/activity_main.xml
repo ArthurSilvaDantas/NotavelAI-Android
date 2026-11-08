@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/toolbar_bg">
+
+    <!-- 1. Barra Superior Fixa (Toolbar) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_bg"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.NotavelAI.Popup"
+        app:subtitleTextColor="@color/branco"
+        app:titleTextColor="@color/branco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 2. Janela Dinâmica onde os Fragmentos aparecem -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_content_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/fundo_app"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:navGraph="@navigation/nav_graph" />
+
+    <!-- 3. Barra Inferior Fixa no Rodapé, sempre com os rótulos visíveis -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_nav_bg"
+        app:itemIconTint="@color/nav_icone"
+        app:itemTextColor="@color/texto_primario"
+        app:itemTextAppearanceActive="@style/TextAppearance.Material3.LabelLarge"
+        app:itemTextAppearanceInactive="@style/TextAppearance.Material3.LabelLarge"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

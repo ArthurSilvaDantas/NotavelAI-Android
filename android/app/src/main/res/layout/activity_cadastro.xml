@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_app"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/margem_tela">
+
+        <TextView
+            android:id="@+id/txtTituloCadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/cadastro_titulo"
+            android:textColor="@color/texto_titulo"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtSubtituloCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/cadastro_subtitulo"
+            android:textColor="@color/texto_secundario"
+            android:textSize="16sp" />
+
+        <!-- Foto de perfil (câmera ou galeria). A descrição muda conforme há foto ou não. -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="@drawable/bg_avatar"
+            android:contentDescription="@string/desc_foto_perfil_padrao"
+            android:padding="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_avatar_padrao" />
+
+        <!-- Um embaixo do outro: lado a lado, o texto não cabe com a fonte aumentada -->
+        <Button
+            android:id="@+id/buttonCamera"
+            style="@style/Botao.NotavelAI.Neutro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/btn_tirar_foto" />
+
+        <Button
+            android:id="@+id/buttonGaleria"
+            style="@style/Botao.NotavelAI.Neutro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/btn_galeria" />
+
+        <TextView
+            style="@style/Rotulo.NotavelAI"
+            android:labelFor="@id/editNome"
+            android:text="@string/rotulo_nome" />
+
+        <EditText
+            android:id="@+id/editNome"
+            style="@style/Campo.NotavelAI"
+            android:autofillHints="name"
+            android:hint="@string/hint_nome"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName|textCapWords" />
+
+        <TextView
+            style="@style/Rotulo.NotavelAI"
+            android:labelFor="@id/editEmail"
+            android:text="@string/rotulo_email" />
+
+        <EditText
+            android:id="@+id/editEmail"
+            style="@style/Campo.NotavelAI"
+            android:autofillHints="emailAddress"
+            android:hint="@string/hint_email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress" />
+
+        <!-- Só no modo edição: confirma que é o dono da conta antes de alterar -->
+        <TextView
+            android:id="@+id/rotuloSenhaAtual"
+            style="@style/Rotulo.NotavelAI"
+            android:labelFor="@id/editSenhaAtual"
+            android:text="@string/rotulo_senha_atual"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/editSenhaAtual"
+            style="@style/Campo.NotavelAI"
+            android:autofillHints="password"
+            android:hint="@string/hint_senha_atual"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/rotuloSenha"
+            style="@style/Rotulo.NotavelAI"
+            android:labelFor="@id/editSenha"
+            android:text="@string/rotulo_senha" />
+
+        <EditText
+            android:id="@+id/editSenha"
+            style="@style/Campo.NotavelAI"
+            android:autofillHints="newPassword"
+            android:hint="@string/hint_senha"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/rotuloConfirmarSenha"
+            style="@style/Rotulo.NotavelAI"
+            android:labelFor="@id/editConfirmarSenha"
+            android:text="@string/rotulo_confirmar_senha" />
+
+        <EditText
+            android:id="@+id/editConfirmarSenha"
+            style="@style/Campo.NotavelAI"
+            android:autofillHints="newPassword"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:gravity="center"
+            android:textColor="@color/texto_primario"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonSalvar"
+            style="@style/Botao.NotavelAI.Primario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/btn_salvar_cadastro" />
+
+    </LinearLayout>
+</ScrollView>

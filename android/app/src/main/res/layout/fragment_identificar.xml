@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_app"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margem_tela">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:text="@string/identificar_titulo"
+            android:textColor="@color/texto_titulo"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/identificar_instrucao"
+            android:textColor="@color/texto_primario"
+            android:textSize="18sp" />
+
+        <!-- Ação principal: o maior botão da tela, em amarelo com texto preto (contraste 13:1) -->
+        <Button
+            android:id="@+id/buttonFotografar"
+            style="@style/Botao.NotavelAI.Destaque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/btn_fotografar" />
+
+        <Button
+            android:id="@+id/buttonGaleria"
+            style="@style/Botao.NotavelAI.Neutro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/espaco_entre_itens"
+            android:text="@string/btn_galeria_cedula" />
+
+        <!-- Cartão do resultado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ProgressBar
+                android:id="@+id/progressAnalise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:visibility="gone" />
+
+            <!-- Valor em destaque. Para o TalkBack, a frase completa está em textResultado. -->
+            <TextView
+                android:id="@+id/textValor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:textColor="@color/texto_primario"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <!-- Live region: o TalkBack lê o resultado assim que ele muda -->
+            <TextView
+                android:id="@+id/textResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityLiveRegion="polite"
+                android:gravity="center"
+                android:text="@string/resultado_inicial"
+                android:textColor="@color/texto_primario"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textConfianca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/texto_secundario"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/buttonOuvirNovamente"
+                style="@style/Botao.NotavelAI.Primario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_repetir_fala" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageCedula"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_foto_cedula"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/aviso_experimental"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_app"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margem_tela">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:text="@string/cotacao_titulo"
+            android:textColor="@color/texto_titulo"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/cotacao_instrucao"
+            android:textColor="@color/texto_primario"
+            android:textSize="18sp" />
+
+        <TextView
+            style="@style/Rotulo.NotavelAI"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/spinnerMoeda"
+            android:text="@string/rotulo_moeda" />
+
+        <Spinner
+            android:id="@+id/spinnerMoeda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_spinner"
+            android:minHeight="56dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <Button
+            android:id="@+id/buttonConsultar"
+            style="@style/Botao.NotavelAI.Primario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_consultar_cotacao" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ProgressBar
+                android:id="@+id/progressCotacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:importantForAccessibility="no"
+                android:visibility="gone" />
+
+            <!-- Live region: o TalkBack lê a cotação (ou o erro) quando chega da internet -->
+            <TextView
+                android:id="@+id/textCotacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityLiveRegion="polite"
+                android:textColor="@color/texto_primario"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textConversao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:accessibilityLiveRegion="polite"
+                android:textColor="@color/texto_primario"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textAtualizacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/texto_secundario"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/cotacao_fonte"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</ScrollView>

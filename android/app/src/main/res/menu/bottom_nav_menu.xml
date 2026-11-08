@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/IdentificarFragment"
+        android:icon="@drawable/ic_nav_identificar"
+        android:title="@string/menu_identificar" />
+
+    <item
+        android:id="@+id/HistoricoFragment"
+        android:icon="@drawable/ic_nav_historico"
+        android:title="@string/menu_historico" />
+
+    <item
+        android:id="@+id/CotacaoFragment"
+        android:icon="@drawable/ic_nav_cotacao"
+        android:title="@string/menu_cotacao" />
+
+</menu>

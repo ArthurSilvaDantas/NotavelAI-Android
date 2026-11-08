@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Identidade visual (noturno) -->
+    <color name="verde_primario">#7FD8A6</color>
+    <color name="amarelo_destaque">#FFD54F</color>
+    <color name="verde_splash">#0B5D3B</color>
+
+    <!-- Fundos e superfícies (noturno) -->
+    <color name="fundo_app">#121212</color>
+    <color name="fundo_card">#1F1F1F</color>
+    <color name="card_borda">#9AA0A6</color>
+    <color name="toolbar_bg">#1F1F1F</color>
+    <color name="bottom_nav_bg">#1F1F1F</color>
+
+    <!-- Textos (noturno) -->
+    <color name="texto_primario">#FFFFFF</color>
+    <color name="texto_secundario">#D6D6D6</color>
+    <color name="texto_titulo">#7FD8A6</color>
+    <color name="texto_erro">#FFB4AB</color>
+
+    <!-- Botões (noturno) -->
+    <color name="botao_primario">#7FD8A6</color>
+    <color name="botao_primario_texto">#0B0B0B</color>
+    <color name="botao_destaque">#FFD54F</color>
+    <color name="botao_destaque_texto">#111111</color>
+    <color name="botao_neutro">#455A64</color>
+    <color name="botao_neutro_texto">#FFFFFF</color>
+
+    <color name="branco">#FFFFFF</color>
+    <color name="preto">#000000</color>
+</resources>

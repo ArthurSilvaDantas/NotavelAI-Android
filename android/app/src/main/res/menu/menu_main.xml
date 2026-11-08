@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.notavelai.view.MainActivity">
+
+    <!-- Miniatura (avatar) do usuário logado, sempre visível na Toolbar.
+         Tocar nela também abre a edição de perfil. -->
+    <item
+        android:id="@+id/action_avatar"
+        android:orderInCategory="10"
+        android:title="@string/action_editar_perfil"
+        app:actionLayout="@layout/toolbar_avatar"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_editar_perfil"
+        android:orderInCategory="50"
+        android:title="@string/action_editar_perfil"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="200"
+        android:title="@string/action_logout"
+        app:showAsAction="never" />
+</menu>

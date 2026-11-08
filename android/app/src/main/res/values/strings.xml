@@ -1,0 +1,165 @@
+<resources>
+    <string name="app_name">NotavelAI</string>
+
+    <!-- Navegação -->
+    <string name="menu_identificar">Identificar</string>
+    <string name="menu_historico">Histórico</string>
+    <string name="menu_cotacao">Cotação</string>
+    <string name="action_editar_perfil">Editar perfil</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_logout">Sair</string>
+    <string name="formato_saudacao">Olá, %1$s</string>
+
+    <!-- Login -->
+    <string name="login_titulo">NotavelAI</string>
+    <string name="login_subtitulo">Aponte a câmera para uma cédula de Real e o aplicativo fala o valor.</string>
+    <string name="rotulo_email">E-mail</string>
+    <string name="rotulo_senha">Senha</string>
+    <string name="hint_email">exemplo@email.com</string>
+    <string name="hint_senha">Mínimo de 6 caracteres</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="btn_ir_cadastro">Criar uma conta</string>
+    <string name="msg_entrando">Verificando seus dados…</string>
+    <string name="msg_preencha_login">Informe o e-mail e a senha.</string>
+    <string name="msg_login_invalido">E-mail ou senha incorretos.</string>
+
+    <!-- Cadastro e edição de perfil -->
+    <string name="cadastro_titulo">Criar conta</string>
+    <string name="cadastro_subtitulo">Preencha seus dados. A foto de perfil é opcional.</string>
+    <string name="editar_titulo">Editar perfil</string>
+    <string name="editar_subtitulo">Altere seus dados. Para manter a senha atual, deixe os campos de nova senha em branco.</string>
+    <string name="rotulo_nome">Nome</string>
+    <string name="rotulo_confirmar_senha">Confirmar senha</string>
+    <string name="rotulo_senha_atual">Senha atual</string>
+    <string name="rotulo_nova_senha">Nova senha (opcional)</string>
+    <string name="rotulo_confirmar_nova_senha">Confirmar nova senha</string>
+    <string name="hint_nome">Seu nome</string>
+    <string name="hint_senha_atual">Obrigatória para salvar alterações</string>
+    <string name="btn_tirar_foto">Tirar foto</string>
+    <string name="btn_galeria">Escolher da galeria</string>
+    <string name="btn_salvar_cadastro">Cadastrar</string>
+    <string name="btn_salvar_alteracoes">Salvar alterações</string>
+    <string name="msg_salvando">Salvando…</string>
+    <string name="msg_preencha_campos">Preencha todos os campos obrigatórios.</string>
+    <string name="msg_nome_curto">O nome precisa ter pelo menos 2 letras.</string>
+    <string name="msg_email_invalido">Digite um e-mail válido, como nome@email.com.</string>
+    <string name="msg_senha_curta">A senha precisa ter pelo menos 6 caracteres.</string>
+    <string name="msg_senhas_diferentes">As senhas não são iguais.</string>
+    <string name="msg_senha_atual_incorreta">A senha atual está incorreta.</string>
+    <string name="msg_email_em_uso">Este e-mail já está cadastrado.</string>
+    <string name="msg_cadastro_ok">Conta criada. Agora é só entrar.</string>
+    <string name="msg_perfil_atualizado">Perfil atualizado.</string>
+    <string name="msg_erro_banco">Não foi possível salvar. Tente novamente.</string>
+    <string name="msg_permissao_camera">Sem permissão da câmera. Você ainda pode escolher uma foto da galeria.</string>
+    <string name="msg_sem_camera">Nenhum aplicativo de câmera encontrado.</string>
+    <string name="msg_erro_imagem">Não foi possível abrir a imagem.</string>
+    <string name="msg_foto_atualizada">Foto selecionada.</string>
+
+    <!-- Identificar -->
+    <string name="identificar_titulo">Identificar cédula</string>
+    <string name="identificar_instrucao">Coloque uma cédula de cada vez sobre uma superfície, com boa luz, e fotografe a nota inteira.</string>
+    <string name="btn_fotografar">Fotografar cédula</string>
+    <string name="btn_galeria_cedula">Usar foto da galeria</string>
+    <string name="btn_repetir_fala">Ouvir de novo</string>
+    <string name="resultado_inicial">Nenhuma cédula analisada ainda.</string>
+    <string name="resultado_analisando">Analisando a foto…</string>
+    <string name="resultado_carregando_modelo">Preparando o reconhecimento…</string>
+    <string name="resultado_valor">%1$s</string>
+    <string name="resultado_fala">Cédula de %1$s.</string>
+    <string name="resultado_confianca">Confiança: %1$d%%</string>
+    <string name="resultado_incerto">Não consegui identificar a cédula. Aproxime a nota, use mais luz e fotografe de novo.</string>
+    <string name="resultado_sem_cedula">Não encontrei uma cédula na foto. Fotografe a nota inteira, sozinha.</string>
+    <string name="resultado_erro_modelo">O reconhecimento não está disponível neste aparelho.</string>
+    <string name="aviso_experimental">Reconhecimento experimental: confira o valor antes de usar o dinheiro.</string>
+
+    <!-- Histórico -->
+    <string name="historico_vazio">Nenhuma cédula identificada ainda. As cédulas que você identificar aparecem aqui.</string>
+    <string name="historico_total">Total: %1$s</string>
+    <string name="historico_item_descricao">%1$s, identificada em %2$s, confiança de %3$d%%</string>
+    <string name="action_limpar_historico">Limpar histórico</string>
+    <string name="action_excluir_item">Excluir do histórico</string>
+    <string name="dialogo_limpar_titulo">Limpar histórico?</string>
+    <string name="dialogo_limpar_mensagem">Todas as cédulas identificadas serão apagadas. Esta ação não pode ser desfeita.</string>
+    <string name="btn_limpar">Limpar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="msg_item_excluido">Item excluído.</string>
+    <string name="msg_historico_limpo">Histórico apagado.</string>
+    <string name="origem_camera">câmera</string>
+    <string name="origem_galeria">galeria</string>
+
+    <!-- Cotação (Requisição HTTP) -->
+    <string name="cotacao_titulo">Converter para outra moeda</string>
+    <string name="cotacao_instrucao">Escolha a moeda para saber quanto vale o total identificado no seu histórico.</string>
+    <string name="rotulo_moeda">Moeda</string>
+    <string name="btn_consultar_cotacao">Consultar cotação</string>
+    <string name="cotacao_consultando">Consultando a cotação…</string>
+    <string name="cotacao_resultado">1 %1$s = %2$s</string>
+    <string name="cotacao_conversao">Seu total de %1$s equivale a %2$s.</string>
+    <string name="cotacao_atualizada_em">Atualizada em %1$s.</string>
+    <string name="cotacao_em_cache">Cotação consultada há menos de 5 minutos; não foi preciso usar a internet de novo.</string>
+    <string name="cotacao_sem_internet">Sem conexão com a internet. Verifique o Wi-Fi ou os dados móveis e tente de novo.</string>
+    <string name="cotacao_erro_servidor">O serviço de cotação não respondeu corretamente. Tente de novo em alguns minutos.</string>
+    <string name="cotacao_erro_rede">Não foi possível consultar a cotação. Verifique a conexão e tente de novo.</string>
+    <string name="cotacao_fonte">Fonte: AwesomeAPI (economia.awesomeapi.com.br)</string>
+
+    <!-- Notificações -->
+    <string name="canal_identificacoes_nome">Cédulas identificadas</string>
+    <string name="canal_identificacoes_descricao">Avisa quando uma cédula é registrada no histórico.</string>
+    <string name="canal_cotacao_nome">Cotação</string>
+    <string name="canal_cotacao_descricao">Avisa quando a cotação consultada fica pronta.</string>
+    <string name="notif_identificacao_titulo">Cédula de %1$s registrada</string>
+    <string name="notif_identificacao_texto">Total no histórico: %1$s</string>
+    <string name="notif_cotacao_titulo">Cotação do %1$s atualizada</string>
+    <string name="notif_cotacao_texto">1 %1$s = %2$s</string>
+    <string name="msg_notificacoes_negadas">Notificações desativadas. O aplicativo continua funcionando, mas sem avisos.</string>
+    <string name="dialogo_notificacao_titulo">Permitir notificações?</string>
+    <string name="dialogo_notificacao_mensagem">O NotavelAI avisa quando uma cédula é registrada e quando a cotação fica pronta.</string>
+    <string name="btn_permitir">Permitir</string>
+    <string name="btn_agora_nao">Agora não</string>
+
+    <!-- Configurações > Acessibilidade -->
+    <string name="config_secao_acessibilidade">Acessibilidade</string>
+    <string name="config_acessibilidade_descricao">Ajustes de leitura e de voz que valem para todas as telas.</string>
+    <string name="config_tema">Tema</string>
+    <string name="config_tema_ajuda">O tema escuro reduz o brilho e mantém o alto contraste.</string>
+    <string name="config_tema_claro">Claro</string>
+    <string name="config_tema_escuro">Escuro</string>
+    <string name="config_texto">Tamanho do texto</string>
+    <string name="config_texto_ajuda">Somado ao tamanho de fonte escolhido no Android.</string>
+    <string name="config_texto_padrao">Padrão</string>
+    <string name="config_texto_grande">Grande</string>
+    <string name="config_texto_muito_grande">Muito grande</string>
+    <string name="config_fala">Falar o resultado em voz alta</string>
+    <string name="config_fala_ajuda">Se você usa o TalkBack, pode desligar para não ouvir o valor duas vezes.</string>
+    <string name="config_cancelar">Cancelar</string>
+    <string name="config_aplicar">Aplicar</string>
+
+    <!-- Descrições para o TalkBack -->
+    <string name="desc_foto_perfil">Foto de perfil</string>
+    <string name="desc_foto_perfil_padrao">Sem foto de perfil</string>
+    <string name="desc_avatar">Foto de perfil. Toque para editar o perfil</string>
+    <string name="desc_foto_cedula">Foto da cédula analisada</string>
+    <string name="desc_logo">Logotipo do NotavelAI</string>
+
+    <!-- Moedas da cotação (string-array) -->
+    <string-array name="moedas_nomes">
+        <item>Dólar americano (USD)</item>
+        <item>Euro (EUR)</item>
+        <item>Libra esterlina (GBP)</item>
+        <item>Peso argentino (ARS)</item>
+        <item>Iene japonês (JPY)</item>
+    </string-array>
+    <string-array name="moedas_codigos">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>ARS</item>
+        <item>JPY</item>
+    </string-array>
+
+    <!-- Strings de quantidade (plurais) -->
+    <plurals name="historico_quantidade">
+        <item quantity="one">%d cédula identificada</item>
+        <item quantity="other">%d cédulas identificadas</item>
+    </plurals>
+</resources>

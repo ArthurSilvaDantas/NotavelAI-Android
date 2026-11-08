@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/IdentificarFragment">
+
+    <fragment
+        android:id="@+id/IdentificarFragment"
+        android:name="com.example.notavelai.view.IdentificarFragment"
+        android:label="@string/menu_identificar"
+        tools:layout="@layout/fragment_identificar" />
+
+    <fragment
+        android:id="@+id/HistoricoFragment"
+        android:name="com.example.notavelai.view.HistoricoFragment"
+        android:label="@string/menu_historico"
+        tools:layout="@layout/fragment_historico" />
+
+    <fragment
+        android:id="@+id/CotacaoFragment"
+        android:name="com.example.notavelai.view.CotacaoFragment"
+        android:label="@string/menu_cotacao"
+        tools:layout="@layout/fragment_cotacao" />
+</navigation>

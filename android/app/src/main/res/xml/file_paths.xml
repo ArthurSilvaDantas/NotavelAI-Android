@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Diretório privado de imagens do app que o FileProvider pode compartilhar
+     com a câmera externa (getExternalFilesDir(Environment.DIRECTORY_PICTURES)). -->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path
+        name="pictures"
+        path="Pictures/" />
+</paths>

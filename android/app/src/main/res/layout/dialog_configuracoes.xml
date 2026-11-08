@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Corpo do diálogo de Configurações aberto pelo menu da Toolbar. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:text="@string/config_secao_acessibilidade"
+            android:textColor="@color/texto_titulo"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/config_acessibilidade_descricao"
+            android:textColor="@color/texto_secundario"
+            android:textSize="15sp" />
+
+        <!-- ===================== Fala ===================== -->
+        <CheckBox
+            android:id="@+id/checkFala"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/config_fala"
+            android:textColor="@color/texto_primario"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/config_fala_ajuda"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <!-- ===================== Tema ===================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/config_tema"
+            android:textColor="@color/texto_primario"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/config_tema_ajuda"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:id="@+id/grupoTema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/temaClaro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/config_tema_claro"
+                android:textColor="@color/texto_primario"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/temaEscuro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/config_tema_escuro"
+                android:textColor="@color/texto_primario"
+                android:textSize="16sp" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/card_borda" />
+
+        <!-- ================ Tamanho do texto ================ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/config_texto"
+            android:textColor="@color/texto_primario"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/config_texto_ajuda"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:id="@+id/grupoTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/textoPadrao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/config_texto_padrao"
+                android:textColor="@color/texto_primario"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/textoGrande"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/config_texto_grande"
+                android:textColor="@color/texto_primario"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/textoMuitoGrande"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/config_texto_muito_grande"
+                android:textColor="@color/texto_primario"
+                android:textSize="16sp" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ícone da barra inferior: preto sobre o destaque amarelo da aba selecionada
+     (nos dois temas) e na cor do texto nas demais abas. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/preto" android:state_checked="true" />
+    <item android:color="@color/texto_primario" />
+</selector>

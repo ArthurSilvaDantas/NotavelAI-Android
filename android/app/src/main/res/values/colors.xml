@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paleta de alto contraste (WCAG): todo texto tem contraste de pelo menos 6:1 com o fundo,
+     acima do mínimo de 4,5:1. Os valores do modo escuro ficam em values-night/colors.xml. -->
+<resources>
+    <!-- Identidade visual -->
+    <color name="verde_primario">#0B5D3B</color>
+    <color name="amarelo_destaque">#FFD54F</color>
+    <color name="verde_splash">#0B5D3B</color>
+
+    <!-- Fundos e superfícies -->
+    <color name="fundo_app">#F7F7F4</color>
+    <color name="fundo_card">#FFFFFF</color>
+    <color name="card_borda">#5F6368</color>
+    <color name="toolbar_bg">#0B5D3B</color>
+    <color name="bottom_nav_bg">#FFFFFF</color>
+
+    <!-- Textos -->
+    <color name="texto_primario">#111111</color>
+    <color name="texto_secundario">#3C3C3C</color>
+    <color name="texto_titulo">#0B5D3B</color>
+    <color name="texto_erro">#B3261E</color>
+
+    <!-- Botões: o texto de cada botão tem cor própria para manter o contraste nos dois temas -->
+    <color name="botao_primario">#0B5D3B</color>
+    <color name="botao_primario_texto">#FFFFFF</color>
+    <color name="botao_destaque">#FFD54F</color>
+    <color name="botao_destaque_texto">#111111</color>
+    <color name="botao_neutro">#37474F</color>
+    <color name="botao_neutro_texto">#FFFFFF</color>
+
+    <color name="branco">#FFFFFF</color>
+    <color name="preto">#000000</color>
+</resources>

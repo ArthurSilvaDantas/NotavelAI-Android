@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="margem_tela">24dp</dimen>
+    <dimen name="espaco_entre_itens">12dp</dimen>
+    <dimen name="alvo_toque_minimo">48dp</dimen>
+</resources>

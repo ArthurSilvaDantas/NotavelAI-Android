@@ -1,0 +1,89 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NotavelAI" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/botao_primario</item>
+        <item name="colorOnPrimary">@color/botao_primario_texto</item>
+        <item name="colorSecondary">@color/botao_destaque</item>
+        <item name="colorOnSecondary">@color/botao_destaque_texto</item>
+        <!-- Sublinhado do campo em foco: o amarelo padrão some sobre o fundo claro -->
+        <item name="colorControlActivated">@color/botao_primario</item>
+        <item name="android:colorAccent">@color/botao_primario</item>
+        <!-- Destaque da aba selecionada na barra inferior: amarelo com ícone preto -->
+        <item name="colorSecondaryContainer">@color/amarelo_destaque</item>
+        <item name="colorOnSecondaryContainer">@color/preto</item>
+        <item name="colorError">@color/texto_erro</item>
+        <item name="android:colorBackground">@color/fundo_app</item>
+        <item name="colorSurface">@color/fundo_card</item>
+        <item name="colorOnSurface">@color/texto_primario</item>
+        <item name="colorOnSurfaceVariant">@color/texto_secundario</item>
+        <item name="android:textColorPrimary">@color/texto_primario</item>
+        <item name="android:textColorSecondary">@color/texto_secundario</item>
+    </style>
+
+    <style name="Theme.NotavelAI" parent="Base.Theme.NotavelAI" />
+
+    <!-- Menu dos três pontinhos da barra superior: segue as cores do tema claro ou escuro
+         (fundo do cartão e texto principal), em vez de ficar sempre com cores do modo claro. -->
+    <style name="ThemeOverlay.NotavelAI.Popup" parent="ThemeOverlay.Material3">
+        <item name="colorSurface">@color/fundo_card</item>
+        <item name="android:colorBackground">@color/fundo_card</item>
+        <item name="colorOnSurface">@color/texto_primario</item>
+        <item name="android:textColorPrimary">@color/texto_primario</item>
+        <item name="android:textColorSecondary">@color/texto_secundario</item>
+    </style>
+
+    <!-- Tema da Splash Screen (androidx.core:core-splashscreen): mostrado pelo próprio sistema
+         enquanto o app inicializa e verifica a sessão. Depois, a Activity passa ao tema normal. -->
+    <style name="Theme.NotavelAI.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/verde_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.NotavelAI</item>
+    </style>
+
+    <!-- Estilos reutilizados pelos botões: altura mínima de 56dp (alvo de toque acima dos 48dp
+         recomendados) e texto grande. -->
+    <style name="Botao.NotavelAI" parent="Widget.Material3.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="Botao.NotavelAI.Primario">
+        <item name="backgroundTint">@color/botao_primario</item>
+        <item name="android:textColor">@color/botao_primario_texto</item>
+    </style>
+
+    <style name="Botao.NotavelAI.Destaque">
+        <item name="backgroundTint">@color/botao_destaque</item>
+        <item name="android:textColor">@color/botao_destaque_texto</item>
+        <item name="android:minHeight">72dp</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Botao.NotavelAI.Neutro">
+        <item name="backgroundTint">@color/botao_neutro</item>
+        <item name="android:textColor">@color/botao_neutro_texto</item>
+    </style>
+
+    <!-- Rótulo visível acima de cada campo: continua na tela enquanto o usuário digita,
+         ao contrário do hint, e é lido pelo TalkBack via labelFor. -->
+    <style name="Rotulo.NotavelAI" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/texto_primario</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="Campo.NotavelAI" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/texto_primario</item>
+        <item name="android:textColorHint">@color/texto_secundario</item>
+    </style>
+</resources>

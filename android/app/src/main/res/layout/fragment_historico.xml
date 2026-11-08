@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_app"
+    android:orientation="vertical"
+    android:padding="@dimen/margem_tela">
+
+    <!-- Resumo: quantidade (plurals) e total em reais -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:textColor="@color/texto_titulo"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textQuantidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/texto_primario"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listHistorico"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:divider="@color/card_borda"
+        android:dividerHeight="1dp" />
+
+    <!-- Exibido pela ListView (setEmptyView) quando não há itens -->
+    <TextView
+        android:id="@+id/textVazio"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/historico_vazio"
+        android:textColor="@color/texto_secundario"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonLimpar"
+        style="@style/Botao.NotavelAI.Neutro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/action_limpar_historico" />
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uma linha do histórico. A linha inteira é um único item para o TalkBack
+     (contentDescription montada no HistoricoAdapter). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp"
+    android:orientation="vertical"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/textValorItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:textColor="@color/texto_primario"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textDetalhesItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:importantForAccessibility="no"
+        android:textColor="@color/texto_secundario"
+        android:textSize="16sp" />
+</LinearLayout>

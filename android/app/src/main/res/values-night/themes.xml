@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- No modo escuro as cores mudam pelos recursos de values-night/colors.xml;
+         o tema reaproveita a mesma definição. -->
+    <style name="Base.Theme.NotavelAI" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/botao_primario</item>
+        <item name="colorOnPrimary">@color/botao_primario_texto</item>
+        <item name="colorSecondary">@color/botao_destaque</item>
+        <item name="colorOnSecondary">@color/botao_destaque_texto</item>
+        <!-- Sublinhado do campo em foco: o amarelo padrão some sobre o fundo claro -->
+        <item name="colorControlActivated">@color/botao_primario</item>
+        <item name="android:colorAccent">@color/botao_primario</item>
+        <!-- Destaque da aba selecionada na barra inferior: amarelo com ícone preto -->
+        <item name="colorSecondaryContainer">@color/amarelo_destaque</item>
+        <item name="colorOnSecondaryContainer">@color/preto</item>
+        <item name="colorError">@color/texto_erro</item>
+        <item name="android:colorBackground">@color/fundo_app</item>
+        <item name="colorSurface">@color/fundo_card</item>
+        <item name="colorOnSurface">@color/texto_primario</item>
+        <item name="colorOnSurfaceVariant">@color/texto_secundario</item>
+        <item name="android:textColorPrimary">@color/texto_primario</item>
+        <item name="android:textColorSecondary">@color/texto_secundario</item>
+    </style>
+</resources>
