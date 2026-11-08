@@ -1,0 +1,124 @@
+file,label,scene,split,discard_reason
+1793374376805.jpg,20,20-e,train,
+1793374376857.jpg,20,20-d,test,
+1793374376992.jpg,20,20-d,test,
+1793374377053.jpg,20,20-d,test,
+1793374377113.jpg,,,discard,mixed values
+1793374377153.jpg,,,discard,mixed values
+1793374377186.jpg,,,discard,mixed values
+1793374377214.jpg,100,100-e,test,
+1793374377245.jpg,,,discard,unreadable value
+1793374377288.jpg,,,discard,unreadable value
+1793374377330.jpg,,,discard,unreadable value
+1793374377394.jpg,,,discard,unreadable value
+1793374377432.jpg,,,discard,unreadable value
+1793374377462.jpg,100,100-d,test,
+1793374377494.jpg,100,100-d,test,
+1793374377532.jpg,100,100-c,test,
+1793374377580.jpg,,,discard,unreadable value
+1793374377607.jpg,100,100-b,train,
+1793374377651.jpg,100,100-b,train,
+1793374377694.jpg,100,100-b,train,
+1793374377728.jpg,,,discard,unreadable value
+1793374377764.jpg,100,100-a,train,
+1793374377788.jpg,100,100-a,train,
+1793374377816.jpg,100,100-a,train,
+1793374377841.jpg,100,100-a,train,
+1793374377863.jpg,20,20-c,train,
+1793374377891.jpg,20,20-c,train,
+1793374377914.jpg,20,20-c,train,
+1793374377935.jpg,20,20-c,train,
+1793374377960.jpg,20,20-b,train,
+1793374377999.jpg,20,20-a,train,
+IMG_20261029_145357.jpg,,,discard,unreadable value
+IMG_20261029_145358.jpg,,,discard,unreadable value
+IMG_20261029_145440.jpg,200,200-a,train,
+IMG_20261029_145441.jpg,200,200-a,train,
+IMG_20261029_145446.jpg,200,200-a,train,
+IMG_20261029_145446_1.jpg,200,200-a,train,
+IMG_20261029_145452.jpg,200,200-b,train,
+IMG_20261029_145453.jpg,200,200-b,train,
+IMG_20261029_145505.jpg,200,200-c,train,
+IMG_20261029_145505_1.jpg,200,200-c,train,
+IMG_20261029_145516.jpg,200,200-d,train,
+IMG_20261029_145518.jpg,200,200-d,train,
+IMG_20261029_145519.jpg,200,200-d,train,
+IMG_20261029_145526.jpg,200,200-e,test,
+IMG_20261029_145538.jpg,,,discard,unreadable value
+IMG_20261029_145538_1.jpg,,,discard,unreadable value
+IMG_20261029_145543.jpg,200,200-f,test,
+IMG_20261029_145544.jpg,200,200-f,test,
+IMG_20261029_145554.jpg,200,200-g,test,
+IMG_20261029_145555.jpg,200,200-g,test,
+IMG_20261029_145604.jpg,,,discard,unreadable value
+IMG_20261029_145605.jpg,,,discard,unreadable value
+IMG_20261029_145620.jpg,,,discard,unreadable value
+IMG_20261029_145621.jpg,,,discard,unreadable value
+IMG_20261029_145635.jpg,,,discard,unreadable value
+IMG_20261029_145636.jpg,,,discard,unreadable value
+IMG_20261029_145712.jpg,,,discard,mixed values
+IMG_20261029_145713.jpg,,,discard,mixed values
+IMG_20261029_145723.jpg,,,discard,mixed values
+IMG_20261029_145724.jpg,,,discard,mixed values
+IMG_20261029_145725.jpg,,,discard,mixed values
+IMG_20261029_145740.jpg,,,discard,mixed values
+IMG_20261029_145741.jpg,,,discard,mixed values
+IMG_20261029_145754.jpg,,,discard,mixed values
+IMG_20261029_145754_1.jpg,,,discard,mixed values
+IMG_20261029_145759.jpg,,,discard,mixed values
+IMG_20261029_145800.jpg,,,discard,mixed values
+IMG_20261029_145807.jpg,,,discard,mixed values
+IMG_20261029_145808.jpg,,,discard,mixed values
+IMG_20261029_145823.jpg,,,discard,mixed values
+IMG_20261029_145824.jpg,,,discard,mixed values
+IMG_20261029_145838.jpg,,,discard,mixed values
+IMG_20261029_145838_1.jpg,,,discard,mixed values
+IMG_20261029_145853.jpg,5,5-a,train,
+IMG_20261029_145853_1.jpg,5,5-a,train,
+IMG_20261029_145901.jpg,,,discard,mixed values
+IMG_20261029_145901_1.jpg,,,discard,mixed values
+IMG_20261029_145909.jpg,10,10-a,test,
+IMG_20261029_145909_1.jpg,10,10-a,test,
+IMG_20261029_145916.jpg,,,discard,unreadable value
+IMG_20261029_145916_1.jpg,,,discard,unreadable value
+IMG_20261029_145919.jpg,10,10-b,train,
+IMG_20261029_145926.jpg,10,10-c,train,
+IMG_20261029_145928.jpg,10,10-c,train,
+IMG_20261029_145931.jpg,10,10-c,train,
+IMG_20261029_145937.jpg,10,10-d,test,
+IMG_20261029_145942.jpg,,,discard,unreadable value
+IMG_20261029_145950.jpg,5,5-b,test,
+IMG_20261029_145953.jpg,5,5-b,test,
+IMG_20261029_145955.jpg,,,discard,mixed values
+IMG_20261029_150000.jpg,5,5-c,test,
+IMG_20261029_150007.jpg,5,5-c,test,
+IMG_20261029_150019.jpg,5,5-d,train,
+IMG_20261029_150020.jpg,5,5-d,train,
+Screenshot_2026-10-28-02-20-18-069_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-20-24-152_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-20-29-854_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-20-33-390_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-20-42-019_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-20-50-718_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-20-56-616_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+Screenshot_2026-10-28-02-21-03-290_com.zhiliaoapp.musically.jpg,,,discard,screenshot
+1793741966155.jpg,2,2-a,train,
+1793741966207.jpg,2,2-a,train,
+1793741966295.jpg,,,discard,mixed values
+1793741966321.jpg,2,2-b,test,
+1793741966342.jpg,,,discard,mixed values
+1793741966362.jpg,,,discard,mixed values
+1793741966386.jpg,,,discard,mixed values
+1793741966413.jpg,fundo,dolar-a,train,
+1793741966439.jpg,fundo,dolar-a,train,
+1793741966460.jpg,fundo,dolar-b,test,
+1793741966484.jpg,fundo,dolar-b,test,
+1793741966502.jpg,5,5-e,test,
+1793741966521.jpg,5,5-e,test,
+1793741966538.jpg,5,5-f,train,
+1793741966557.jpg,5,5-f,train,
+1793741966576.jpg,5,5-f,train,
+1793741966598.jpg,5,5-g,train,
+1793741966618.jpg,5,5-g,train,
+1793741966639.jpg,5,5-g,train,
+1793741966660.jpg,5,5-g,train,
