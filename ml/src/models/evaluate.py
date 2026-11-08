@@ -1,7 +1,8 @@
-"""Mede o modelo final na validação e nas fotos do celular, do mesmo jeito que o app.
+"""Mede o modelo final na validação e em fotos reais, do mesmo jeito que o app.
 
-As fotos do celular (data/phone_test/) são de cenas fora do treino e são a métrica principal. O
-split test do dataset fica de fora. A latência é a do computador que roda o script, não a de um
+Conjuntos: validação (recortes do BRL Dataset e metade do teste do Kaggle), fotos do celular do
+grupo (data/phone_test/), a outra metade do teste do Kaggle (data/kaggle_test/) e o teste extra
+dos autores do Kaggle (data/kaggle_extra/): fotos reais fora do treino, a métrica principal. O split test do BRL Dataset fica de fora. A latência é a do computador que roda o script, não a de um
 celular.
 
 Saídas:
@@ -16,12 +17,18 @@ import keras
 import numpy as np
 
 from src.data.dataset import PROCESSED_DIR, REPORTS_DIR
+from src.data.prepare_kaggle import KAGGLE_EXTRA_DIR, KAGGLE_TEST_DIR
 from src.data.prepare_own_photos import OWN_TEST_DIR
 from src.models import ensemble
 from src.models.predict import expand, load
 from src.models.train_model import CLASS_NAMES_PATH
 
-SETS = {"validation": PROCESSED_DIR / "valid", "phone": OWN_TEST_DIR}
+SETS = {
+    "validation": PROCESSED_DIR / "valid",
+    "phone": OWN_TEST_DIR,
+    "kaggle": KAGGLE_TEST_DIR,
+    "kaggle_extra": KAGGLE_EXTRA_DIR,
+}
 SUMMARY_PATH = REPORTS_DIR / "evaluation.csv"
 PHOTOS_PATH = REPORTS_DIR / "phone_predictions.csv"
 
@@ -40,14 +47,17 @@ def main() -> None:
         data[set_name] = (files, np.stack([load(file) for file in files]), [file.parent.name for file in files])
 
     probabilities = {}  # modelo -> conjunto -> probabilidades
-    for name, path in zip(["base", "external"], ensemble.tflite_paths()):
+    MEMBER_NAMES = [name.removeprefix("notavelai_").removesuffix(".tflite") for name in ensemble.MEMBERS]
+    for name, path in zip(MEMBER_NAMES, ensemble.tflite_paths()):
         probabilities[name] = {set_name: ensemble.run_tflite(path, images)[0] for set_name, (_, images, _) in data.items()}
-    probabilities["final"] = {
-        set_name: np.mean([probabilities[name][set_name] for name in ("base", "external")], axis=0) for set_name in SETS
-    }
+    if len(MEMBER_NAMES) > 1:
+        probabilities["final"] = {
+            set_name: np.mean([probabilities[name][set_name] for name in MEMBER_NAMES], axis=0) for set_name in SETS
+        }
+    final = "final" if "final" in probabilities else MEMBER_NAMES[0]
 
     # O .tflite precisa dar as mesmas respostas do Keras de origem.
-    for (name, path), source in zip(zip(["base", "external"], ensemble.tflite_paths()), ensemble.MEMBERS.values()):
+    for (name, path), source in zip(zip(MEMBER_NAMES, ensemble.tflite_paths()), ensemble.MEMBERS.values()):
         model = keras.models.load_model(source)
         differences = sum(
             int((model.predict(images, verbose=0).argmax(1) != probabilities[name][set_name].argmax(1)).sum())
@@ -81,7 +91,7 @@ def main() -> None:
     with PHOTOS_PATH.open("w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(["file", "true_label", "predicted", "confidence", "app_says"])
-        for path, truth, scores in zip(files, real, probabilities["final"]["phone"]):
+        for path, truth, scores in zip(files, real, probabilities[final]["phone"]):
             value = spoken(scores, names)
             answer = f"R$ {value}" if value else ("no banknote" if names[int(np.argmax(scores))] == "fundo" else "not identified")
             writer.writerow([path.name, truth, names[int(np.argmax(scores))], f"{scores.max():.3f}", answer])
