@@ -12,19 +12,22 @@ from PIL import Image, ImageOps
 
 from src.models import ensemble
 from src.models.ensemble import LABELS_PATH
-from src.models.train_model import IMAGE_SIZE
+from src.models.train_model import prepare_image
 
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
 TOP = 3
 
 
 def load(path: Path) -> np.ndarray:
-    """Endireita pela tag EXIF, como a câmera do app entrega, e completa com preto até 224x224."""
+    """Endireita pela tag EXIF, como a câmera do app entrega, e prepara como no treino."""
     with Image.open(path) as image:
-        rgb = np.asarray(ImageOps.exif_transpose(image).convert("RGB"), dtype="float32")
-    # Mesma função do image_dataset_from_directory do treino. Outro redimensionamento, mesmo
-    # parecido, muda previsões: o modelo ainda é sensível a deslocamentos de 1 pixel.
-    return tf.image.resize_with_pad(rgb, *IMAGE_SIZE).numpy()
+        image = ImageOps.exif_transpose(image).convert("RGB")
+    # O app reduz a foto a no máximo 1024 px antes do modelo (FotoUtil.LADO_MODELO).
+    image.thumbnail((1024, 1024))
+    rgb = np.asarray(image, dtype="float32")
+    # Mesma função do treino (prepare_image) e do app (PreProcessamento.java): outro
+    # redimensionamento, mesmo parecido, muda previsões.
+    return np.asarray(prepare_image(tf.convert_to_tensor(rgb)))
 
 
 def expand(paths: list[Path]) -> list[Path]:

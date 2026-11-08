@@ -1,11 +1,13 @@
-"""Modelo final do NotavelAI: a média das probabilidades de dois treinos da mesma MobileNetV2.
+"""Modelo final do NotavelAI: os modelos que o app roda e a média das probabilidades deles.
 
-- base: recortes do BRL Dataset, classe fundo, fotos do celular e composições.
-- external: o mesmo, mais o segundo lote de fotos do celular (com dólar como fundo) e 500 fotos do
-  dataset banknoteBrazil.
+Hoje é um modelo só (notavelai): MobileNetV2 inteira ajustada, com corte central da imagem,
+treinada com o BRL Dataset, a classe fundo, as fotos do celular, o banknoteBrazil, as composições e
+as 1142 fotos originais de treino do dataset "Cédulas do Real" (Kaggle). Na validação, ele superou
+as combinações de dois modelos usadas em versões anteriores. Com mais de um membro, a resposta seria
+a média.
 
-Com o limiar de 50% do app, a média anuncia menos valores errados que cada treino sozinho (ver
-README). O app faz a mesma conta em ClassificadorCedulas.java.
+O app só anuncia um valor com confiança de pelo menos 70% (THRESHOLD), limiar escolhido na
+validação, não no teste. O app faz a mesma conta em ClassificadorCedulas.java.
 
 Uso: python -m src.models.ensemble   # converte os membros para .tflite e gera labels.txt
 """
@@ -21,12 +23,11 @@ from src.models.train_model import CLASS_NAMES_PATH, MODELS_DIR
 
 # Nome do .tflite no app -> modelo Keras de origem
 MEMBERS = {
-    "notavelai_base.tflite": MODELS_DIR / "notavelai_base.keras",
-    "notavelai_external.tflite": MODELS_DIR / "notavelai_external.keras",
+    "notavelai.tflite": MODELS_DIR / "notavelai.keras",
 }
 LABELS_PATH = MODELS_DIR / "labels.txt"
 # Abaixo disso o app diz que não conseguiu identificar, em vez de falar um valor.
-THRESHOLD = 0.5
+THRESHOLD = 0.7
 
 
 def tflite_paths() -> list[Path]:

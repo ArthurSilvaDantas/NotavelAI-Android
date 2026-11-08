@@ -1,16 +1,20 @@
 """Treina o classificador de cédulas (MobileNetV2) em duas fases e salva o melhor modelo.
 
-Fase 1: base congelada, treina só a cabeça. Fase 2: fine-tuning das últimas camadas da base.
-Usa apenas train e valid; o split de teste fica reservado para a Etapa 3.
+Fase 1: base congelada, treina só a cabeça. Fase 2: fine-tuning da rede inteira com learning rate
+baixo. Cada imagem é reduzida ao quadrado central de 224x224 (PREPROCESSING = "crop"), como no app
+e no artigo de Almeida et al. (2025). Usa apenas train e valid.
 
-Grava em models/notavelai.keras. O app usa a média de dois treinos (src/models/ensemble.py): para
-trocar um deles, renomeie o arquivo para o nome do membro e rode src.models.ensemble.
+Grava em models/notavelai.keras, o modelo que o app usa (src/models/ensemble.py).
 
 A normalização faz parte do grafo do modelo: ele recebe 224x224 RGB em float com valores 0-255.
 As augmentations rodam no tf.data, fora do modelo, para não entrarem no .tflite exportado.
+
+As variáveis de ambiente NOTAVELAI_* (ver abaixo) permitem experimentos sem editar o código.
 """
 
 import json
+import os
+from pathlib import Path
 
 import keras
 import matplotlib
@@ -23,7 +27,7 @@ import tensorflow as tf
 from src.data.dataset import CLASSES, FIGURES_DIR, PROCESSED_DIR, REPORTS_DIR, ROOT
 
 MODELS_DIR = ROOT / "models"
-MODEL_PATH = MODELS_DIR / "notavelai.keras"
+MODEL_PATH = Path(os.environ.get("NOTAVELAI_MODEL_PATH", MODELS_DIR / "notavelai.keras"))
 CLASS_NAMES_PATH = MODELS_DIR / "classes.json"
 
 IMAGE_SIZE = (224, 224)
@@ -33,8 +37,9 @@ SEED = 42
 HEAD_EPOCHS = 30
 HEAD_LEARNING_RATE = 1e-3
 FINE_EPOCHS = 30
-FINE_LEARNING_RATE = 1e-5
-FINE_TUNE_LAYERS = 30
+FINE_LEARNING_RATE = float(os.environ.get("NOTAVELAI_FINE_LR", 2e-5))
+# 154 = a MobileNetV2 inteira, com learning rate baixo (como no artigo de Almeida et al., 2025).
+FINE_TUNE_LAYERS = int(os.environ.get("NOTAVELAI_FINE_TUNE_LAYERS", 154))
 PATIENCE = 6
 DROPOUT = 0.3
 MAX_IMBALANCE = 1.5  # maior/menor classe acima disso liga o class_weight
@@ -46,19 +51,40 @@ def class_names() -> list[str]:
     return [*CLASSES, "fundo"] if has_background else list(CLASSES)
 
 
+# Preparo da imagem: "pad" completa com preto até o quadrado (a foto inteira cabe); "crop" corta
+# o quadrado central, como no artigo de Almeida et al. (2025): a nota ocupa mais da imagem.
+PREPROCESSING = os.environ.get("NOTAVELAI_PREPROCESSING", "crop")
+# "all" usa todas as fontes; "real" só fotos inteiras (celular, Kaggle, banknoteBrazil) e fundo.
+TRAIN_SOURCES = os.environ.get("NOTAVELAI_TRAIN_SOURCES", "all")
+REAL_PREFIXES = ("phone__", "kaggle__", "external__")
+
+
+def prepare_image(image: tf.Tensor) -> tf.Tensor:
+    image = tf.cast(image, tf.float32)
+    if PREPROCESSING == "crop":
+        return keras.preprocessing.image.smart_resize(image, IMAGE_SIZE)
+    return tf.image.resize_with_pad(image, *IMAGE_SIZE)
+
+
+def list_files(split: str, names: list[str]) -> tuple[list[str], list[int]]:
+    paths, labels = [], []
+    for index, name in enumerate(names):
+        for path in sorted((PROCESSED_DIR / split / name).glob("*.jpg")):
+            keep = TRAIN_SOURCES == "all" or split != "train" or name == "fundo" or path.name.startswith(REAL_PREFIXES)
+            if keep:
+                paths.append(str(path))
+                labels.append(index)
+    return paths, labels
+
+
 def load_split(split: str, names: list[str]) -> tf.data.Dataset:
-    # pad_to_aspect_ratio preserva a proporção: há recortes em pé e deitados, e esticá-los para
-    # um quadrado distorceria cada grupo de um jeito diferente.
-    return keras.utils.image_dataset_from_directory(
-        PROCESSED_DIR / split,
-        labels="inferred",
-        label_mode="int",
-        class_names=names,
-        batch_size=None,
-        image_size=IMAGE_SIZE,
-        pad_to_aspect_ratio=True,
-        shuffle=False,
-    ).cache()
+    paths, labels = list_files(split, names)
+
+    def read(path, label):
+        image = tf.io.decode_jpeg(tf.io.read_file(path), channels=3)
+        return prepare_image(image), label
+
+    return tf.data.Dataset.from_tensor_slices((paths, labels)).map(read, num_parallel_calls=tf.data.AUTOTUNE).cache()
 
 
 def build_augmentation() -> keras.Sequential:
